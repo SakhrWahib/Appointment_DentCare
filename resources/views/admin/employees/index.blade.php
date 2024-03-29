@@ -4,7 +4,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-   
+
 
     <!-- Content Row -->
         <div class="card">
@@ -26,24 +26,20 @@
                     <table class="table table-bordered table-striped table-hover datatable datatable-Employee" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th width="10">
-
-                                </th>
-                                <th>No</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Photo</th>
-                                <th>Services</th>
-                                <th>Action</th>
+                                <th width="10"></th>
+                                <th>الرقم</th>
+                                <th>الاسم</th>
+                                <th>البريد الإلكتروني</th>
+                                <th>رقم الهاتف</th>
+                                <th>الصورة</th>
+                                <th>الخدمات</th>
+                                <th>الإجراءات</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($employees as $employee)
                             <tr data-entry-id="{{ $employee->id }}">
-                                <td>
-
-                                </td>
+                                <td></td>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $employee->name }}</td>
                                 <td>{{ $employee->email }}</td>
@@ -55,7 +51,7 @@
                                         </a>
                                     @endif
                                 </td>
-                                <td> 
+                                <td>
                                     @foreach($employee->services as $key => $service)
                                         <span class="badge badge-info">{{ $service->name }}</span>
                                     @endforeach
@@ -65,7 +61,7 @@
                                         <a href="{{ route('admin.employees.edit', $employee->id) }}" class="btn btn-info">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
-                                        <form onclick="return confirm('are you sure ? ')" class="d-inline" action="{{ route('admin.employees.destroy', $employee->id) }}" method="POST">
+                                        <form onclick="return confirm('هل أنت متأكد؟ ')" class="d-inline" action="{{ route('admin.employees.destroy', $employee->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
@@ -77,13 +73,14 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="9" class="text-center">{{ __('Data Empty') }}</td>
+                                <td colspan="9" class="text-center">{{ __('البيانات فارغة') }}</td>
                             </tr>
                             @endforelse
                         </tbody>
                     </table>
                 </div>
             </div>
+
         </div>
     <!-- Content Row -->
 

@@ -4,7 +4,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    
+
 
     @if($errors->any())
         <div class="alert alert-danger">
@@ -17,29 +17,30 @@
     @endif
 
 <!-- Content Row -->
-        <div class="card shadow">
-            <div class="card-header">
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">{{ __('create Service') }}</h1>
-                    <a href="{{ route('admin.services.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
-                </div>
-            </div>
-            <div class="card-body">
-                <form action="{{ route('admin.services.store') }}" method="POST">
-                    @csrf
-                    <div class="form-group">
-                        <label for="name">{{ __('name') }}</label>
-                        <input type="text" class="form-control" id="name" placeholder="{{ __('name') }}" name="name" value="{{ old('name') }}" />
-                    </div>
-                    <div class="form-group">
-                        <label for="price">{{ __('price') }}</label>
-                        <input type="text" class="form-control" id="price" placeholder="{{ __('price') }}" name="price" value="{{ old('price') }}" />
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">{{ __('Save') }}</button>
-                </form>
-            </div>
+<div class="card shadow">
+    <div class="card-header">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">{{ __('إنشاء خدمة') }}</h1>
+            <a href="{{ route('admin.services.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('العودة') }}</a>
         </div>
-    
+    </div>
+    <div class="card-body">
+        <form action="{{ route('admin.services.store') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="name">{{ __('الاسم') }}</label>
+                <input type="text" class="form-control" id="name" placeholder="{{ __('الاسم') }}" name="name" value="{{ old('name') }}" />
+            </div>
+            <div class="form-group">
+                <label for="price">{{ __('السعر') }}</label>
+                <input type="text" class="form-control" id="price" placeholder="{{ __('السعر') }}" name="price" value="{{ old('price') }}" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">{{ __('حفظ') }}</button>
+        </form>
+    </div>
+</div>
+
+
 
     <!-- Content Row -->
 

@@ -4,7 +4,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    
+
 
     @if($errors->any())
         <div class="alert alert-danger">
@@ -17,64 +17,65 @@
     @endif
 
 <!-- Content Row -->
-        <div class="card shadow">
-            <div class="card-header">
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">{{ __('create appointment') }}</h1>
-                    <a href="{{ route('admin.appointments.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
-                </div>
-            </div>
-            <div class="card-body">
-                <form action="{{ route('admin.appointments.store') }}" method="POST">
-                    @csrf
-                    <div class="form-group">
-                        <label for="employee">{{ __('employee') }}</label>
-                        <select class="form-control" name="employee_id">
-                            @foreach($employees as $id => $employee)
-                                <option value="{{ $id }}"> {{ $employee }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="client">{{ __('client') }}</label>
-                        <select class="form-control" name="client_id" >
-                            @foreach($clients as $id => $client)
-                                <option value="{{ $id }}"> {{ $client }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="start_time">{{ __('Start Time') }}</label>
-                        <input type="text" class="form-control datetimepicker" id="start_time" name="start_time" value="{{ old('start_time') }}" />
-                    </div>
-                    <div class="form-group">
-                        <label for="finish_time">{{ __('Finish Time') }}</label>
-                        <input type="text" class="form-control datetimepicker" id="finish_time" name="finish_time" value="{{ old('finish_time') }}" />
-                    </div>
-                    <div class="form-group">
-                        <label for="service">{{ __('service') }}</label>
-                        <select class="form-control" name="services[]" multiple id="">
-                            @foreach($services as $id => $service)
-                                <option value="{{ $id }}"> {{ $service }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="comments">{{ __('comments') }}</label>
-                        <textarea class="form-control" id="comments" placeholder="{{ __('comments') }}" name="comments" >
-                            {{ old('comments') }}
-                        </textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="price">{{ __('price') }}</label>
-                        <input type="text" class="form-control" id="price" placeholder="{{ __('price') }}" name="price" value="{{ old('price') }}" />
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">{{ __('Save') }}</button>
-                </form>
-            </div>
+<div class="card shadow">
+    <div class="card-header">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">{{ __('إنشاء موعد') }}</h1>
+            <a href="{{ route('admin.appointments.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('العودة') }}</a>
         </div>
-    
+    </div>
+    <div class="card-body">
+        <form action="{{ route('admin.appointments.store') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="employee">{{ __('الموظف') }}</label>
+                <select class="form-control" name="employee_id">
+                    @foreach($employees as $id => $employee)
+                        <option value="{{ $id }}"> {{ $employee }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="client">{{ __('العميل') }}</label>
+                <select class="form-control" name="client_id" >
+                    @foreach($clients as $id => $client)
+                        <option value="{{ $id }}"> {{ $client }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="start_time">{{ __('وقت البدء') }}</label>
+                <input type="text" class="form-control datetimepicker" id="start_time" name="start_time" value="{{ old('start_time') }}" />
+            </div>
+            <div class="form-group">
+                <label for="finish_time">{{ __('وقت الانتهاء') }}</label>
+                <input type="text" class="form-control datetimepicker" id="finish_time" name="finish_time" value="{{ old('finish_time') }}" />
+            </div>
+            <div class="form-group">
+                <label for="service">{{ __('الخدمة') }}</label>
+                <select class="form-control" name="services[]" multiple id="">
+                    @foreach($services as $id => $service)
+                        <option value="{{ $id }}"> {{ $service }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">{{ __('التعليقات') }}</label>
+                <textarea class="form-control" id="comments" placeholder="{{ __('التعليقات') }}" name="comments" >
+                    {{ old('comments') }}
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label for="price">{{ __('السعر') }}</label>
+                <input type="text" class="form-control" id="price" placeholder="{{ __('السعر') }}" name="price" value="{{ old('price') }}" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">{{ __('حفظ') }}</button>
+        </form>
+    </div>
+</div>
+
+
 
     <!-- Content Row -->
 

@@ -4,7 +4,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-   
+
 
     <!-- Content Row -->
         <div class="card">
@@ -22,38 +22,34 @@
                 </div>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
+                <div class="table-responsive" style="direction: rtl;">
                     <table class="table table-bordered table-striped table-hover datatable datatable-appointment" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th width="10">
-
-                                </th>
-                                <th>No</th>
-                                <th>Client</th>
-                                <th>Employee</th>
-                                <th>Start Time</th>
-                                <th>Finish Time</th>
-                                <th>Price</th>
-                                <th>Comments</th>
-                                <th>Services</th>
-                                <th>Action</th>
+                                <th width="10"></th>
+                                <th>الرقم</th>
+                                <th>العميل</th>
+                                <th>الموظف</th>
+                                <th>وقت البدء</th>
+                                <th>وقت الانتهاء</th>
+                                <th>السعر</th>
+                                <th>التعليقات</th>
+                                <th>الخدمات</th>
+                                <th>الإجراءات</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($appointments as $appointment)
                             <tr data-entry-id="{{ $appointment->id }}">
-                                <td>
-
-                                </td>
+                                <td></td>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $appointment->client->name }}</td>
                                 <td>{{ $appointment->employee->name }}</td>
                                 <td>{{ $appointment->start_time }}</td>
                                 <td>{{ $appointment->finish_time }}</td>
-                                <td>${{ $appointment->price }}</td>
+                                <td>{{ $appointment->price }} ر.ي.</td>
                                 <td>{{ $appointment->comments }}</td>
-                                <td> 
+                                <td>
                                     @foreach($appointment->services as $key => $service)
                                         <span class="badge badge-info">{{ $service->name }}</span>
                                     @endforeach
@@ -63,7 +59,7 @@
                                         <a href="{{ route('admin.appointments.edit', $appointment->id) }}" class="btn btn-info">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
-                                        <form onclick="return confirm('are you sure ? ')" class="d-inline" action="{{ route('admin.appointments.destroy', $appointment->id) }}" method="POST">
+                                        <form onclick="return confirm('هل أنت متأكد؟ ')" class="d-inline" action="{{ route('admin.appointments.destroy', $appointment->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
@@ -75,13 +71,15 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="10" class="text-center">{{ __('Data Empty') }}</td>
+                                <td colspan="10" class="text-center">{{ __('البيانات فارغة') }}</td>
                             </tr>
                             @endforelse
                         </tbody>
                     </table>
                 </div>
+
             </div>
+
         </div>
     <!-- Content Row -->
 

@@ -4,7 +4,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    
+
 
     @if($errors->any())
         <div class="alert alert-danger">
@@ -17,44 +17,44 @@
     @endif
 
 <!-- Content Row -->
-        <div class="card shadow">
-            <div class="card-header">
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">{{ __('create client') }}</h1>
-                    <a href="{{ route('admin.clients.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
-                </div>
-            </div>
-            <div class="card-body">
-                <form action="{{ route('admin.clients.store') }}" method="POST">
-                    @csrf
-                    <div class="form-group">
-                        <label for="name">{{ __('name') }}</label>
-                        <input type="text" class="form-control" id="name" placeholder="{{ __('name') }}" name="name" value="{{ old('name') }}" />
-                    </div>
-                    <div class="form-group">
-                        <label for="email">{{ __('email') }}</label>
-                        <input type="email" class="form-control" id="email" placeholder="{{ __('email') }}" name="email" value="{{ old('email') }}" />
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">{{ __('phone') }}</label>
-                        <input type="text" class="form-control" id="phone" placeholder="{{ __('phone') }}" name="phone" value="{{ old('phone') }}" />
-                    </div>
-                    <div class="form-group {{ $errors->has('photo') ? 'has-error' : '' }}">
-                        <label for="photo">Photo</label>
-                        <div class="needsclick dropzone" id="photo-dropzone">
-
-                        </div>
-                        @if($errors->has('photo'))
-                            <em class="invalid-feedback">
-                                {{ $errors->first('photo') }}
-                            </em>
-                        @endif
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">{{ __('Save') }}</button>
-                </form>
-            </div>
+<div class="card shadow">
+    <div class="card-header">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">{{ __('إنشاء عميل') }}</h1>
+            <a href="{{ route('admin.clients.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('العودة') }}</a>
         </div>
-    
+    </div>
+    <div class="card-body">
+        <form action="{{ route('admin.clients.store') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="name">{{ __('الاسم') }}</label>
+                <input type="text" class="form-control" id="name" placeholder="{{ __('الاسم') }}" name="name" value="{{ old('name') }}" />
+            </div>
+            <div class="form-group">
+                <label for="email">{{ __('البريد الإلكتروني') }}</label>
+                <input type="email" class="form-control" id="email" placeholder="{{ __('البريد الإلكتروني') }}" name="email" value="{{ old('email') }}" />
+            </div>
+            <div class="form-group">
+                <label for="phone">{{ __('الهاتف') }}</label>
+                <input type="text" class="form-control" id="phone" placeholder="{{ __('الهاتف') }}" name="phone" value="{{ old('phone') }}" />
+            </div>
+            <div class="form-group {{ $errors->has('photo') ? 'has-error' : '' }}">
+                <label for="photo">الصورة</label>
+                <div class="needsclick dropzone" id="photo-dropzone">
+
+                </div>
+                @if($errors->has('photo'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('photo') }}
+                    </em>
+                @endif
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">{{ __('حفظ') }}</button>
+        </form>
+    </div>
+</div>
+
 
     <!-- Content Row -->
 

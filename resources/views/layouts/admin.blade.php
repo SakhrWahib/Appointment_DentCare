@@ -46,17 +46,16 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    
-                    <!-- Sidebar Toggle (Topbar) -->
+
+                    <!-- زر تبديل الشريط الجانبي (الشريط العلوي) -->
                     <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
-
-                    <!-- Topbar Navbar -->
+                    <!-- قائمة شريط علوي -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - User Information -->
+                        <!-- عنصر القائمة - معلومات المستخدم -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,13 +63,19 @@
                                 <img class="img-profile rounded-circle"
                                     src="{{ asset('backend/img/undraw_profile.svg') }}">
                             </a>
-                            <!-- Dropdown - User Information -->
+                            <!-- القائمة المنسدلة - معلومات المستخدم -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                <a class="dropdown-item" href="#"
+                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    تسجيل الخروج
                                 </a>
+                                <p style="text-align: center;">
+                                    <a href="{{ route('languageConverter', 'ar') }}">العربية</a>
+                                    <a href="{{ route('languageConverter', 'en') }}">English</a>
+                                </p>
+
                                 <form id="logout-form" action="{{ route('logout') }}" method="post">
                                     @csrf
                                 </form>
@@ -80,6 +85,7 @@
                     </ul>
 
                 </nav>
+
                 <!-- End of Topbar -->
 
                 @if(session()->has('message'))
@@ -121,26 +127,27 @@
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                  <form action="" method="POST">
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">هل أنت مستعد للمغادرة؟</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">اختر "تسجيل الخروج" أدناه إذا كنت مستعدًا لإنهاء جلستك الحالية.</div>
+            <div class="modal-footer">
+                <form action="" method="POST">
                     @csrf
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <button class="btn btn-primary" type="submit">Logout</button>
-                  </form>
-                </div>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">إلغاء</button>
+                    <button class="btn btn-primary" type="submit">تسجيل الخروج</button>
+                </form>
             </div>
         </div>
     </div>
+</div>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('backend/vendor/jquery/jquery.min.js') }}"></script>
@@ -165,7 +172,7 @@
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
-    
+
     <script>
         $(function() {
   let copyButtonTrans = 'copy'

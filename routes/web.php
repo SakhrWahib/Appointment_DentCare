@@ -3,21 +3,31 @@
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\ContactController;
+
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
+| Here auth.login where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('home');
 });
+Route::get('languageConverter/{locale}', function($locale) {
+    if (in_array($locale, ['ar', 'en'])) {
+        session()->put('locale', $locale);
+    }
+    return redirect()->back();
+})->name('languageConverter');
+
 
 Route::group(['middleware' => ['auth','isAdmin'],'prefix' => 'admin', 'as' => 'admin.'], function() {
     Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
@@ -31,7 +41,7 @@ Route::group(['middleware' => ['auth','isAdmin'],'prefix' => 'admin', 'as' => 'a
     // services
     Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class);
     Route::delete('services_mass_destroy', [\App\Http\Controllers\Admin\ServiceController::class, 'massDestroy'])->name('services.mass_destroy');
-    
+
     // employees
     Route::resource('employees', \App\Http\Controllers\Admin\EmployeeController::class);
     Route::delete('employees_mass_destroy', [\App\Http\Controllers\Admin\EmployeeController::class, 'massDestroy'])->name('employees.mass_destroy');
@@ -43,6 +53,9 @@ Route::group(['middleware' => ['auth','isAdmin'],'prefix' => 'admin', 'as' => 'a
     Route::post('clients/media', [\App\Http\Controllers\Admin\ClientController::class, 'storeMedia'])->name('clients.storeMedia');
 
     // appointment
+
+Route::get('admin.appointments.index', [\App\Http\Controllers\Admin\AppointmentController::class, 'index'])->name('admin.appointments.index');
+
     Route::resource('appointments', \App\Http\Controllers\Admin\AppointmentController::class);
     Route::delete('appointments_mass_destroy', [\App\Http\Controllers\Admin\AppointmentController::class, 'massDestroy'])->name('appointments.mass_destroy');
 
@@ -51,3 +64,8 @@ Route::group(['middleware' => ['auth','isAdmin'],'prefix' => 'admin', 'as' => 'a
 
 Auth::routes(['register' => false]);
 
+
+Route::get('service', [ServiceController::class, 'index'])->name('service');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');

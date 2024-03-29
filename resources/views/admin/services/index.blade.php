@@ -4,11 +4,11 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-   
+
 
     <!-- Content Row -->
         <div class="card">
-            <div class="card-header py-3 d-flex">
+            <div class="card-header py-3 d-flex"    >
                 <h6 class="m-0 font-weight-bold text-primary">
                     {{ __('Service') }}
                 </h6>
@@ -26,30 +26,26 @@
                     <table class="table table-bordered table-striped table-hover datatable datatable-Service" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th width="10">
-
-                                </th>
-                                <th>No</th>
-                                <th>Name</th>
-                                <th>Price</th>
-                                <th>Action</th>
+                                <th width="10"></th>
+                                <th>الرقم</th>
+                                <th>الاسم</th>
+                                <th>السعر</th>
+                                <th>الإجراءات</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($services as $service)
                             <tr data-entry-id="{{ $service->id }}">
-                                <td>
-
-                                </td>
+                                <td></td>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $service->name }}</td>
-                                <td>${{ $service->price }}</td>
+                                <td>{{ $service->price }} ر.ي.</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
                                         <a href="{{ route('admin.services.edit', $service->id) }}" class="btn btn-info">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
-                                        <form onclick="return confirm('are you sure ? ')" class="d-inline" action="{{ route('admin.services.destroy', $service->id) }}" method="POST">
+                                        <form onclick="return confirm('هل أنت متأكد؟ ')" class="d-inline" action="{{ route('admin.services.destroy', $service->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
@@ -61,12 +57,13 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="7" class="text-center">{{ __('Data Empty') }}</td>
+                                <td colspan="5" class="text-center">{{ __('البيانات فارغة') }}</td>
                             </tr>
                             @endforelse
                         </tbody>
                     </table>
                 </div>
+
             </div>
         </div>
     <!-- Content Row -->
