@@ -140,53 +140,7 @@
 
 
                     <!-- Banner Start -->
-                    <div class="container-fluid banner mb-5">
-                        <div class="container">
-                            <div class="row gx-0">
-                                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
-                                    <div class="bg-primary d-flex flex-column p-5" style="height: 300px;">
-                                        <h3 class="text-white mb-3">ساعات العمل</h3>
-                                        <div class="d-flex justify-content-between text-white mb-3">
-                                            <h6 class="text-white mb-0">الإثنين - الجمعة</h6>
-                                            <p class="mb-0">8:00 ص - 9:00 م</p>
-                                        </div>
-                                        <div class="d-flex justify-content-between text-white mb-3">
-                                            <h6 class="text-white mb-0">السبت</h6>
-                                            <p class="mb-0">8:00 ص - 7:00 م</p>
-                                        </div>
-                                        <div class="d-flex justify-content-between text-white mb-3">
-                                            <h6 class="text-white mb-0">الأحد</h6>
-                                            <p class="mb-0">8:00 ص - 5:00 م</p>
-                                        </div>
-                                        <a class="btn btn-light" href="">موعد</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">
-                                    <div class="bg-dark d-flex flex-column p-5" style="height: 300px;">
-                                        <h3 class="text-white mb-3">البحث عن طبيب</h3>
-                                        <div class="date mb-3" id="date" data-target-input="nearest">
-                                            <input type="text" class="form-control bg-light border-0 datetimepicker-input"
-                                                placeholder="تاريخ الموعد" data-target="#date" data-toggle="datetimepicker" style="height: 40px;">
-                                        </div>
-                                        <select class="form-select bg-light border-0 mb-3" style="height: 40px;">
-                                            <option selected>اختر خدمة</option>
-                                            <option value="1">الخدمة 1</option>
-                                            <option value="2">الخدمة 2</option>
-                                            <option value="3">الخدمة 3</option>
-                                        </select>
-                                        <a class="btn btn-light" href="">البحث عن طبيب</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">
-                                    <div class="bg-secondary d-flex flex-column p-5" style="height: 300px;">
-                                        <h3 class="text-white mb-3">حجز موعد</h3>
-                                        <p class="text-white">ايبسوم ايرات ايبسوم دولور كليتا ريبوم نو ريبوم دولوريس لابوري، ايبسوم ماجنا ات ايوس ات ايوس اميت.</p>
-                                        <h2 class="text-white mb-0">+967772627882</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <!-- Banner Start -->
                     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="container">
